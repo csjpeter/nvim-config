@@ -1,0 +1,3 @@
+
+set winheight=35
+
