@@ -40,7 +40,7 @@ vim.opt.directory = "/home/csjpeter/tmp/nvimswapfiles//"
 --  Disable mouse support
 --
 
---vim.opt.mouse = ""
+vim.opt.mouse = ""
 
 --
 --  Code autoformatting
@@ -69,6 +69,14 @@ vim.g.copilot_no_tab_map = true
 
 -- Map keys to accept Copilot suggestions (optional)
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+--
+--  CopilotChat
+-------------------
+
+require("CopilotChat").setup {
+  -- See Configuration section for options
+}
 
 --
 --  fzf and fzf.vim
