@@ -24,7 +24,7 @@ vim.cmd('colorscheme csjpeter')
 --
 --  Include config with legacy syntax
 --
-vim.cmd("source /home/csjpeter/.config/nvim/vimrc")
+vim.cmd("source ~/.config/nvim/vimrc")
 
 --
 --  Editor backup files
@@ -33,8 +33,8 @@ vim.cmd("source /home/csjpeter/.config/nvim/vimrc")
 --
 
 vim.opt.backup = true
-vim.opt.backupdir = '/home/csjpeter/tmp/nvim-backups'
-vim.opt.directory = "/home/csjpeter/tmp/nvimswapfiles//"
+vim.opt.backupdir = '~/tmp/nvim-backups'
+vim.opt.directory = "~/tmp/nvimswapfiles//"
 
 --
 --  Disable mouse support
