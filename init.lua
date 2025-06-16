@@ -132,6 +132,45 @@ function get_make_status()
     return "notloaded"
 end
 
+-- Map keys to jump next or prev compilation error to fix
+vim.api.nvim_set_keymap("i", "<C-y>", ':cnext<CR>', { silent = true })
+vim.api.nvim_set_keymap("i", "<C-í>", ':cprev<CR>', { silent = true })
+vim.api.nvim_set_keymap("n", "<C-y>", ':cnext<CR>', { silent = true })
+vim.api.nvim_set_keymap("n", "<C-í>", ':cprev<CR>', { silent = true })
+
+vim.api.nvim_set_keymap("i", "<C-x>", ':rightbelow vertical copen | vertical resize 80 <CR>', { silent = true })
+vim.api.nvim_set_keymap("n", "<C-x>", ':rightbelow vertical copen | vertical resize 80 <CR>', { silent = true })
+
+--
+-- clang-format
+-------------------------
+
+vim.keymap.set("v", "+", function()
+  --local cmd = ":'<,'>!clang-format --style=file:~/.clang-format"
+  --vim.fn.execute(cmd)
+  --vim.api.nvim_command(cmd)
+
+  -- Ensure the visual selection range is captured
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+
+  print("Start line:", start_line, "End line:", end_line)
+
+  --if start_line == end_line then
+  --  return
+  --end
+
+  -- Ensure the range is valid and sorted (start_line < end_line)
+  --if start_line > end_line then
+  --  tmp = start_line
+  --  start_line = end_line
+  --  end_line = tmp
+  --end
+
+  local cmd = string.format(":'%d,%d!clang-format --style=file:~/.clang-format", start_line, end_line)
+  vim.api.nvim_command(cmd)
+end, { noremap = true, silent = true })
+
 --
 --  Status line (needs Auto make)
 ---------------------------------
