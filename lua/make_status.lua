@@ -1,7 +1,7 @@
 local M = {}
 M.status = "idle"
 
--- For iteratingover quickfixlist you can use neovim default key bindings:
+-- For iterating over quickfixlist you can use neovim default key bindings:
 -- - :cnext ]q
 -- - :cprev [q
 -- - :cfirst
@@ -108,6 +108,11 @@ end, {})
 -- Command to run make only
 vim.api.nvim_create_user_command("Make", function()
     M.run_make("")
+end, {})
+
+-- Command to run make tidy
+vim.api.nvim_create_user_command("Tidy", function()
+    M.run_make("tidy")
 end, {})
 
 -- Autocommand to trigger on save
