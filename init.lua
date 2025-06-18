@@ -33,8 +33,11 @@ vim.cmd("source ~/.config/nvim/vimrc")
 --
 
 vim.opt.backup = true
-vim.opt.backupdir = '~/tmp/nvim-backups'
-vim.opt.directory = "~/tmp/nvimswapfiles//"
+vim.opt.backupdir = vim.fn.expand('~') .. '/tmp/nvim-backups'
+vim.opt.directory = vim.fn.expand('~') .. '/tmp/nvimswapfiles//'
+vim.fn.mkdir(vim.opt.backupdir:get()[1], "p")
+vim.fn.mkdir(vim.opt.directory:get()[1], "p")
+
 
 --
 --  Disable mouse support
