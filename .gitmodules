@@ -19,3 +19,9 @@
 [submodule "pack/plugins/start/plenary.nvim"]
 	path = pack/plugins/start/plenary.nvim
 	url = git@github.com:nvim-lua/plenary.nvim
+[submodule "pack/plugins/start/nvim-lspconfig"]
+	path = pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "pack/plugins/start/nvim-lint"]
+	path = pack/plugins/start/nvim-lint
+	url = https://github.com/mfussenegger/nvim-lint
