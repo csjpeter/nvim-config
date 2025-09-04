@@ -115,6 +115,11 @@ vim.api.nvim_create_user_command("Tidy", function()
     M.run_make("tidy")
 end, {})
 
+-- Command to run make play
+vim.api.nvim_create_user_command("Play", function()
+    M.run_make("play")
+end, {})
+
 -- Autocommand to trigger on save
 function M.setup()
     return M
