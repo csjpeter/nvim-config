@@ -63,6 +63,9 @@ vim.opt.shiftwidth = 4
 
 vim.opt.paste = false
 
+vim.o.exrc = true     -- allow project-local config files (~/.nvim.lua or .exrc)
+vim.o.secure = true   -- disallow unsafe commands in local configs
+
 --
 --  Copilot
 -----------
@@ -196,38 +199,4 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.foldmethod = "marker"
   end,
 })
-
---
--- LSP config
---------------
-
---require('lspconfig').clangd.setup({})
-vim.api.nvim_create_user_command('StartLsp',
-                                 function()
-                                     require('lspconfig').clangd.setup({})
-                                 end,
-                                 {})
-
---
--- Load nvim-lint
------------------
-
-require('lint').linters_by_ft = { cpp = {'gpp'} }
-
-require('lint').linters.gpp = {
-  cmd = 'g++',
-  args = {'-Wall', '-fsyntax-only', '-std=c++20'},
-  stdin = false,
-  ignore_exitcode = true,
-  parser = require('lint.parser').from_errorformat(
-    '%f:%l:%c: %m',
-    { source = 'g++', severity = vim.diagnostic.severity.ERROR }
-  ),
-}
-
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-  pattern = {"*.cpp", "*.hpp", "*.cxx", "*.hxx"},
-  callback = function() require('lint').try_lint() end,
-})
-
 
