@@ -71,10 +71,10 @@ vim.o.secure = true   -- disallow unsafe commands in local configs
 -----------
 
 -- Disable default tab mapping (optional)
-vim.g.copilot_no_tab_map = true
+--vim.g.copilot_no_tab_map = true
 
 -- Map keys to accept Copilot suggestions (optional)
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+--vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 --
 --  CopilotChat
